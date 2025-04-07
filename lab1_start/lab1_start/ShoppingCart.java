@@ -13,6 +13,7 @@ public class ShoppingCart {
         return scanner.nextLine();
     }
 
+
     public static void main(String[] args) throws Exception {
         Wallet wallet = new Wallet();
         Pocket pocket = new Pocket();
@@ -30,6 +31,8 @@ public class ShoppingCart {
             */
             if (wallet.getBalance() >= Store.getProductPrice(product)){
                 
+                Thread.sleep(5000);
+
                 int new_balance = wallet.getBalance() - Store.getProductPrice(product);
                 wallet.setBalance(new_balance);
 
