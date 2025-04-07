@@ -33,10 +33,12 @@ public class ShoppingCart {
                 
                 Thread.sleep(5000);
 
-                int new_balance = wallet.getBalance() - Store.getProductPrice(product);
-                wallet.setBalance(new_balance);
+                boolean accept = wallet.safeWithdraw(Store.getProductPrice(product));
 
-                pocket.addProduct(product);
+                if (accept) {
+                    pocket.addProduct(product);
+                }
+                else {System.out.println("Not enough credit.");}
             }
             else {System.out.println("Not enough credits.");}
 
